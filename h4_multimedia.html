@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		파일 경로
+			절대경로 : 처음부터 다 명시 !
+			경기도 부천시 XX구 XX동 OOO번지 OO아파트 XXX동 XXXX호
+	 		실전에서는 사용 불가능
+	 		
+	 		상대경로 : 현재 작업중인 html기준으로 
+	 		.. : 한단계 위의 경로로 올라가겠다
+	 		*** 한글 파일명 가급적 사용 X!
+	 -->
+	
+	<img src="C:\Users\tpgns\Desktop\JSP\Jun11_1_HTML\src\main\webapp\img\lostark1.png">
+	<hr>
+	<img src="../lostark2.jpg">
+	<hr>
+	<img src="lostark1.png">
+	<hr>
+	
+	<!-- controls 속성은 플레이 버튼이나 정지버튼과 같이 비디오의 실행을 제어할 수 있는 -->
+	<video src="../nature1.mp4" controls="controls"></video>
+	<hr>
+	
+	<!-- 음악, 영상, 문서 등의 외부 컨텐츠를 포함 
+		/ 최신 브라우저들은 지원을 중단하고 있는 추세라서 사용하는 것을 지양...
+	-->
+	<embed src="../ebook.pdf" width="600px" height="600px">
+	<!-- 
+		사이즈 조절
+			가로나 세로 중에 하나만 조절하면 => 원본 비율에 따라서 크기를 조절
+			단위를 안쓰면 px(픽셀)단위
+			% 단위 사용 가능 O
+			사이즈 조절 안하는게 베스트 ! => 픽셀이 깨져서 나와요!
+	 -->
+	 <hr>
+	 <!-- autoplay 기능은 중단됨 -->
+	 <audio src="../VVS.mp3" controls="controls"></audio>
+	
+</body>
+</html>
