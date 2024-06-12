@@ -1,0 +1,98 @@
+@charset "EUC-KR";
+@font-face {
+	src: url("aDongbaek.ttf");
+	font-family: "Dongbaek";
+	/*  
+		웹폰트 등록 :
+		CSS에 추가
+		폰트파일에 있는 글자들의 모양이 다 등록
+			=> 용량이 커집니다 !
+				=> 느림...
+	*/
+}
+
+/* 스크롤바 없애기 ↓ */
+::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	font-family: "Dongbaek";
+	/* html 기본 여백 없애기 */
+	margin: 0px;
+	padding: 0px;
+	/* margin: 바깥쪽 여백 / padding: 안쪽 여백 */
+}
+
+#siteTitleArea {
+	position: fixed;	/* 좌표조절 */
+	top: 0px;			/* 좌표조절 */
+	left: 0px;			/* 좌표조절 */
+	width: 100%;
+	border-spacing: 0px; /* td간의 간격 */	
+}
+
+#siteMenuArea{
+	background-color: #FFCCFF55;
+					/* R-G-B-투명도 */
+	font-size: 30pt;
+}
+
+#siteMenuArea table {
+	width: 100%;
+}
+
+#siteMenuArea td {
+	width: 25%;
+	text-align: center;
+}
+
+#siteMenuArea a{
+	text-decoration: none;
+	color: teal;
+	font-weight: 500;
+	/* 애니메이션 효과 */
+	/* 속성명	시간	(ease-in / ease-out) */
+	transition: all 0.5s ease-in;
+}
+
+#siteMenuArea a:hover{
+	font-size: 40pt;
+	text-shadow: pink 0px 0px 10px;
+	text-decoration: underline;
+}
+
+#siteMenuArea a:active{
+	color: green;
+}
+
+#siteTitle {
+	background-color: #3399FF55;
+	font-size: 30pt;
+	color: black;
+	text-shadow: teal 3px 5px 5px;
+	width: 1000px;
+}
+
+#siteContentArea{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto; /* left, right : auto를 주면 가운데 정렬 */
+	margin-top: 200px;	
+}
+
+#mokokoImage {
+	max-width: 50%;
+	/* 
+		사이즈를 조절하면 그림이 깨져서 안하는게 베스트 ! 
+		어쩔 수 없다면
+			큰 그림 => 줄이기 : ok!
+			작은 그림 => 늘리기 : 픽셀이 깨져서 나올수도 있음
+	*/
+	
+	/* 객체 자체에 그림자 */
+	box-shadow: pink 5px 5px 30px;
+}
+
+
+

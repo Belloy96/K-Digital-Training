@@ -1,0 +1,35 @@
+@charset "EUC-KR";
+
+.aimage img {
+	max-width: 150px;
+	max-width: 150px;
+	box-shadow: navy 0px 0px 5px;
+	margin-top: 20px;
+}
+
+.aimage{
+	border: #90ee9015 solid 3px;
+	border-radius: 10px;
+	box-shadow: navy 0px 0px 5px;
+	font-size: 20pt;
+	float: left;
+	margin: 30px;
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
