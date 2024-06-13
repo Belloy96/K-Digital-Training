@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/input_answer.css">
+</head>
+<body>
+	<form action="Output_answer" method="post">
+		<table id="joinTbl">
+			<tr>
+				<td colspan="2" align="center" class="joinTd">회원가입</td>		
+			</tr>
+			
+			<tr>
+				<td align="center" class="td1">ID</td>
+				<td>
+					<input autofocus="autofocus" autocomplete="off"
+					placeholder="필수, 4 ~ 8자" name="ID"
+					required="required" class="textType">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center" class="td1">PW</td>
+				<td>
+					<input autocomplete="off" placeholder="필수, 영문/숫자혼합" 
+					type="password" name="PW" required="required" class="textType">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center" class="td1">성별</td>
+				<td align="center" class="radioTd">
+					<input type="radio" checked="checked" name="GD" value="남자">남자
+					<input type="radio" name="GD" value="여자">여자
+					<input type="radio" name="GD" value="기타">기타
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center" class="td1">지역</td>
+				<td>
+					<select name="LC" class="radioTd">
+						<option disabled selected>어디사세요?</option>
+						<option>서울</option>
+						<option>경기</option>
+						<option>인천</option>
+						<option>강원</option>
+						<option>충북</option>
+						<option>충남</option>
+						<option>전북</option>
+						<option>전남</option>
+						<option>경북</option>
+						<option>경남</option>
+						<option>제주</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center" class="td1">취미</td>
+				<td align="center">
+					<input type="checkbox" value="게임" name="HB">게임
+					<input type="checkbox" value="골프" name="HB">골프
+					<input type="checkbox" value="운동" name="HB">운동 <br>
+					<input type="checkbox" value="SNS" name="HB">SNS
+					<input type="checkbox" value="맛집탐방" name="HB">맛집탐방
+					<input type="checkbox" value="방콕" name="HB">방콕
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center" class="td1">자기소개</td>
+				<td>
+					<textarea name="IND"></textarea>
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center" colspan="2">
+					<button>가입</button>			
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

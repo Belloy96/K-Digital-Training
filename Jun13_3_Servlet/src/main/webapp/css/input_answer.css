@@ -1,0 +1,98 @@
+@charset "UTF-8";
+@font-face {
+	font-family: "Dongbaek";
+	src: url("aDongbaek.ttf");
+}
+
+#joinTbl {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: pink;
+	font-family: "Dongbaek";
+	font-size: 15pt;
+	border-radius: 8px;
+	box-shadow: purple 5px 5px 10px;
+}
+
+.joinTd {
+	font-size: 25pt;
+	font-weight: 600;
+	text-shadow: white 3px 5px 5px;
+}
+
+.tb1{
+	margin-bottom: 10px;
+}
+
+.textType {
+	margin-bottom: auto;
+	outline: none;
+	text-align: center;
+	border: white solid 3px;
+	border-radius: 10px;
+	background-color: transparent;
+	color: teal;
+	font-size: 13pt;
+	font-weight: 600;
+	font-family: "Dongbaek";
+}
+
+#joinTbl .textType:focus {
+	border-bottom: black dashed 3px;
+}
+
+#joinTbl .textType::placeholder {
+	color: white;
+}
+
+#joinTbl .radioTd {
+	color: black;
+	height: 40px;
+	width: 200px;
+}
+
+#joinTbl select {
+	border: none;
+	background-color: transparent;
+	font-size: 15pt;
+	font-family: "Dongbaek";
+	outline: none;
+	padding-left: 20pt;
+}
+
+#joinTbl select option{
+	background-color: lightblue;
+	color: #fff;
+	padding: 3px 0;
+}
+
+#joinTbl textarea {
+	resize: none;
+	background-color: transparent;
+	border: white solid 3px;
+	border-radius: 10px;
+	width: 90%;
+	height: 70px;
+	outline: none;
+	font-family: "Dongbaek";
+	font-size: 13pt;
+	color: teal;
+}
+
+#joinTbl button {
+	border: none;
+	background-color: transparent;
+	color: black;
+	font-size: 15pt;
+	font-family: "Dongbaek";
+	cursor: pointer;
+}
+
+#joinTbl button:hover {
+	text-decoration: underline;
+	color: #fff;
+}
+
+
+
+

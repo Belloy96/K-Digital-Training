@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@font-face {
+	src: url("aDongbaek.ttf");
+	font-family: "Dongbaek";
+}
+
+#infoTbl {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Dongbaek";
+	font-size: 15pt;
+	background-color: pink;
+	box-shadow: pink 5px 5px 30px;
+	border-radius: 8px;
+	
+}
+
+#infoTbl textarea {
+	resize: none;
+	font-family: "Dongbaek";
+}
+
+
+
+

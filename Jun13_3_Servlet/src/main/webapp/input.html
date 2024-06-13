@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Information</title>
+<link rel="stylesheet" href="css/input.css">
+</head>
+<body>
+	<form action="Output" method="post">
+		<table id="infoTbl">
+			<tr>
+				<td align="center" colspan="2">
+					<h1>★ 회 원 가 입 ★</h1>
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center" class="item">ID</td>
+				<td>
+					<input type="text" placeholder="필수 입력" name="ID">
+				</td>			
+			</tr>
+			
+			<tr>
+				<td align="center" class="item">PW</td>
+				<td>
+					<input type="password" placeholder="필수 입력" name="PW">
+				</td>			
+			</tr>
+			
+			<tr>
+				<td align="center" class="item">성별</td>
+				<td>
+					<input type="radio" value="남자" name="GD">남자
+					<input type="radio" value="여자" name="GD">여자
+					<input type="radio" value="기타" name="GD">기타
+				</td>			
+			</tr>
+	
+			<tr>
+				<td align="center" class="item">지역</td>
+				<td>
+					<select>
+						<option disabled >지역을 선택하세요</option>
+						<option>서울</option>
+						<option>경기</option>
+						<option>인천</option>
+						<option>강원</option>
+						<option>충북</option>
+						<option>충남</option>
+						<option>경북</option>
+						<option>경남</option>
+						<option>전북</option>
+						<option>전남</option>
+						<option>제주</option>
+					</select>
+				</td>			
+			</tr>
+			
+			<tr>
+				<td align="center" class="item">취미</td>
+				<td>
+					<input type="checkbox" value="게임" name="HB">게임
+					<input type="checkbox" value="독서" name="HB">독서
+					<input type="checkbox" value="조깅" name="HB">조깅 <br>
+					<input type="checkbox" value="수영" name="HB">수영
+					<input type="checkbox" value="싸이클" name="HB">싸이클
+					<input type="checkbox" value="등산" name="HB">등산
+				</td>			
+			</tr>
+			
+			<tr>
+				<td align="center" class="item">자기소개</td>
+				<td>
+					<textarea name="IND"></textarea>
+				</td>			
+			</tr>
+			
+			<tr>
+				<td align="center" colspan="2">
+					<button>
+						가입		
+					</button>
+				</td>			
+			</tr>
+		</table>
+	</form>
+
+	<!-- 
+		<< 회원가입 페이지 >>
+		ID
+		PW
+		성별
+		지역
+			<select>
+				<option>1</option>	
+				<option>2</option>	
+				<option>3</option>	
+				<option>4</option>	
+			<select>
+		취미 (복수 선택 가능)
+		자기소개 (textarea) + CSS까지 이쁘게
+		가입버튼 누르면 => 입력한 정보들이 새로운 페이지에 뜨게 (Servlet을 통해 출력)
+	 -->
+</body>
+</html>
