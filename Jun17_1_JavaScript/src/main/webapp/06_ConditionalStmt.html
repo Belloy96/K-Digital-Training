@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" >
+	/* function kkkk() {
+		alert('ㅋㅋㅋㅋㅋㅋㅋ');
+	} */
+	
+	// 1. 버튼 3개를 추가해서 각각 '100원', '500원', '1000원' 텍스트 넣기
+	// 2. 각 버튼에 기능 넣기
+	// 3. 
+	//		500원 미만이면 '선택할 수 있는 음료수 없음!'
+	//		500원 이상이면 '콜라 선택 가능'
+	//		700원 이상이면 '콜라, 사이다 선택 가능'
+	//		1000원 이상이면 '콜라, 사이다, 닥터페퍼 선택 가능'
+	//		2000원 이상이면 '콜라, 사이다, 닥터페퍼, 맥주 선택 가능'
+	//		3000원 이상이면 '콜라, 사이다, 닥터페퍼, 맥주, 소주 선택 가능'
+	//			=> alert으로 출력
+	// 4. 돈 쌓이는거 log로 확인
+	
+	let money = 0;
+	
+	function coin() {
+		alert('돈을 넣어주세요.'); 
+	}
+	
+	function choiceDrink() {
+		if(money >= 3000){
+			alert('콜라, 사이다, 닥터페퍼, 맥주, 소주 선택 가능');
+		} else if (money >= 2000) {
+			alert('콜라, 사이다, 닥터페퍼, 맥주 선택 가능');
+		} else if (money >= 1000) {
+			alert('콜라, 사이다, 닥터페퍼 선택 가능');
+		} else if (money >= 700) {
+			alert('콜라, 사이다 선택 가능');
+		} else if (money >= 500) {
+			alert('콜라 선택 가능');
+		} 
+		
+		
+		getDrink();
+	}
+	
+	// 반복문 while에 a이름을 단 이유는 switch case를 넣어 break걸면 다른 곳에서 멈추기 떄문
+	function getDrink() {
+		a : while (true) {
+			if (money < 500) {
+				break a;
+			}
+			
+			let drink = prompt('뽑을 음료를 골라주세요.', '멈춰');
+			switch (drink) {
+			case "콜라":
+				if (money < 500) {
+					alert('돈이 부족합니다.');
+					break;
+				}
+				alert(`${drink}를 선택했습니다. ${money}에서 500원을 차감합니다.`);
+				money -= 500;
+				console.log("현재 금액 : " + money + "원");
+				break;
+
+			case "사이다":
+				if (money < 700) {
+					alert('돈이 부족합니다.');
+					break;
+				}
+				alert(`${drink}를 선택했습니다. ${money}에서 700원을 차감합니다.`);
+				money -= 700;
+				console.log("현재 금액 : " + money + "원");
+				break;
+
+			case "닥터페퍼":
+				if (money < 1000) {
+					alert('돈이 부족합니다.');
+					break;
+				}
+				alert(`${drink}를 선택했습니다. ${money}에서 1000원을 차감합니다.`);
+				money -= 1000;
+				console.log("현재 금액 : " + money + "원");
+				break;
+
+			case "맥주":
+				if (money < 2000) {
+					alert('돈이 부족합니다.');
+					break;
+				}
+				alert(`${drink}를 선택했습니다. ${money}에서 2000원을 차감합니다.`);
+				money -= 2000;
+				console.log("현재 금액 : " + money + "원");
+				break;
+
+			case "소주":
+				if (money < 3000) {
+					alert('돈이 부족합니다.');
+					break;
+				}
+				alert(`${drink}를 선택했습니다. ${money}에서 3000원을 차감합니다.`);
+				money -= 3000;
+				console.log("현재 금액 : " + money + "원");
+				break;
+			
+			case "멈춰":
+				alert("잠시 멈춤");
+				break a;
+				
+			default:
+				alert(`${drink}는 없습니다. 다시 선택해주세요.`);
+				break;
+			}
+			
+		}
+	}
+	
+	function insert(currency) {
+		money += currency;
+		console.log("현재 금액 : " + money + "원");
+		choiceDrink();
+	}
+	
+	function refund() {
+		if (money == 0) {
+			alert('환불할 돈이 없는데요 ?')
+			return;
+		}		
+		
+		let refundMoney = confirm(money + "원을 환불하시겠습니까 ?");
+		if (refundMoney) {
+			console.log(money + "원이 환불됩니다.");
+			money = 0;
+			console.log("현재 금액 : " + money + "원");
+		}
+		
+	}
+	
+	
+</script>
+</head>
+<body>
+	<!--  <button onclick="kkkk();">ㅋㅋㅋㅋㅋㅋㅋ</button> -->
+	<div>
+		<div align="center">★ 자 판 기 ★</div>
+		<div align="center">
+			<div>🥤콜라 : 500원</div>
+			<div>🥤사이다 : 700원</div>
+			<div>🥤닥터페퍼 : 1000원</div>
+			<div>🍺맥주 : 2000원</div>
+			<div>🍾소주 : 3000원</div>
+		</div>
+	</div>
+	<hr>
+	<div align="center">
+		<button onclick="coin();">돈넣기</button>
+		<button onclick="insert(100);">100원</button>
+		<button onclick="insert(500);">500원</button>
+		<button onclick="insert(1000);">1000원</button>
+		<button onclick="refund();">돈빼기</button>
+	</div>
+
+</body>
+</html>
