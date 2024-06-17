@@ -60,7 +60,7 @@ var add = (num1, num2) => num1 + num2;
 let sayHello2 = name => `Hello, ${name}`;
 
 // 6. 파라미터가 없는 함수라면 괄호는 생략 가능 X
-let asdf = () => console.log(asdf);
+let asdf = () => console.log('asdf');
 asdf();
 
 // Function vs Method
