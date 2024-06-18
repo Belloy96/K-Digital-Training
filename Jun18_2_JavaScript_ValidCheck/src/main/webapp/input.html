@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function goHahaha() {
+		// document : 이 html문서
+		let iiInput = document.getElementById("ii"); // id가 ii인 것
+		// document.getElementByClass("ii"); // class가 ii인 것
+		// document.getElementByTagName("input") // 특정 태그명
+		
+		
+		
+		let iiInputVal = iiInput.value; // 입력한 내용이 나오게
+		// alert(iiInputVal);
+		
+		location.href = "ㅋㅋㅋ?ii=" + iiInputVal;
+		
+	}
+
+</script>
+</head>
+<body>
+
+	<!--  
+		button을 더블클릭하면 ㅋㅋㅋ?ii=XXX GET방식 요청
+		
+		주소 입력				- GET (방식의 요청)
+		<a> 태그				- GET (방식의 요청, href 사용)
+		<form> + <button>	- GET / POST (둘 다 가능)
+		JavaScript			- GET (방식의 요청)
+		
+		form으로 하면 편하지만 이번 예시에서는 JavaScript로 진행
+	-->
+	<input id="ii">
+	<button ondblclick="goHahaha();">확인</button>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

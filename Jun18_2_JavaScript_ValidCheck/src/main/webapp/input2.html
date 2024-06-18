@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function checkValid() {
+		let idInput = document.ff.idd; // document.form이름.input이름
+ 		let pwInput = document.ff.pwpw;
+		let pwChkInput = document.ff.pwchk;
+		let footInput = document.ff.foot;
+	
+		// 필수 검사
+		if (!idInput.value) { 	// idInput에다가 값을 입력하지 않았을 경우
+			alert("님 ID 안씀 ㅋ");
+			idInput.focus(); 	// 커서 갖다놓기
+			return false;		// 입력 안하면 false값 return
+		} else if (idInput.value.length < 5) { // || idInput.value.length > 11 대신 ID값에 maxlength 추가
+			alert("ID는 5 ~ 10글자");
+			idInput.focus();
+			idInput.value = ""; // 기존에 썼던거 지우기
+			return false;
+		} 
+		
+		
+		if (!pwInput.value) {
+			alert("님 PW 안씀 ㅋ");
+			pwInput.focus();
+			return false;
+		} else if (pwInput.value.length < 5) {
+			alert("PW는 5 ~ 10글자");
+			pwInput.focus();
+			pwInput.value = "";
+			return false;
+		}
+		
+		// PW랑 PW확인이 다르면?
+		if (pwChkInput.value != pwInput.value) {
+			alert("비번 제대로 확인 !");
+			pwInput.value = "";
+			pwChkInput.value = "";
+			pwInput.focus();
+			return false;
+		} 
+		
+		// indexOf를 사용해서 PW에 3, 6, 9 중에 하나 이상
+		// h, k 중에 하나 이상 들어가 있었으면..
+		// 없으면 PW 입력 다시!
+		let numExist = false; // 숫자가 있는지 체크용
+		let num = "369";
+		for (var i = 0; i < num.length; i++) {
+			if (pwInput.value.indexOf(num[i]) != -1) { // 들어있다면
+				numExist = true;
+				break;
+			}
+		}
+		
+		let letterExist = false;
+		let letter = "hk";
+		for (var i = 0; i < letter.length; i++) {
+			if (pwInput.value.indexOf(letter[i]) != -1) { // 들어있다면!
+				letterExist = true;
+				break;
+			}
+		}
+		
+		alert(numExist);
+		alert(letterExist); // 두 조건을 만족하게 되면 둘 다 true
+		
+		// if문에서 !true = false => 조건식이 안돌아감
+		if (!numExist || !letterExist) {
+			alert(numExist);
+			alert(letterExist);
+			alert("있어야 할게 없는데 ?")
+			return false;
+		}
+		
+		// 발사이즈 (숫자만)
+		if (isNaN(footInput.value)) { //isNaN -> 숫자가 아닌거 찾는거!
+			alert("아 ~ 숫자만 쓰라고 ㅋㅋㅋ")			
+			footInput.value = "";
+			footInput.focus();
+			return false;
+		}
+		return true;			// 입력하면 true값 return
+	}
+	
+	let s = "오늘은 화요일인데 너무 졸려요";
+	// alert(s);
+	// alert(s.length);					// 글자 수
+	// alert(s[5]); 					// 6번째 위치에 글자
+	// alert(s.indexOf("졸"));			// "졸"은 몇 번째 위치에 있을까 ?
+	// alert(s.indexOf("악"));			// -1("악 이라는 값이 없어서 -1을 리턴")
+	// alert(s.indexOf("매우") != -1);	// "매우"가 포함되어 있는가? (false나 true값 리턴)
+	//		indexOf : 있으면 그 위치를 리턴, 없으면 -1을 리턴
+	
+</script>
+</head>
+<body>
+	<!--  
+		<form> 안에
+		ID / PW / PW확인 / 발사이즈 / 버튼
+		action="임의의 값" name="이름" onsubmit="return checkValid(); / 마지막 세미콜론 주의!!!!
+		ID<input>에 maxlength로 최대 10글자로 제한
+	-->
+	<form action="ㅋㅋㅋㅋ" name="ff" onsubmit="return checkValid();">
+		ID <input name="idd" maxlength="10" autofocus="autofocus"> <p>
+		PW <input name="pwpw" maxlength="10"> <p>
+		PW Check <input name="pwchk" maxlength="10"> <p>
+		Foot Size <input name="foot"> <p>
+		<hr>
+		<button>Submit</button>
+	</form>
+</body>
+</html>
+
+
