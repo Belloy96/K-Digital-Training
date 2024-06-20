@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/BelloyValidChecker.js"></script>
+<script type="text/javascript" src="js/Jun18_Check.js"></script>
+<link rel="stylesheet" href="css/BMIInput_Answer.css">
+</head>
+<body>
+	<!-- 
+		form + table 활용
+		BMI 검사
+		bmi : 몸무게 / (키 * 키) -- 키는 m단위
+			bmi가 18.5 미만이면 저체중
+			bmi가 18.5 이상이면 정상
+			bmi가 25 이상이면 과체중
+			bmi가 30 이상이면 경도비만
+			bmi가 35 이상이면 중증도비만
+			bmi가 40 이상이면 고도비만
+		지금 HTML에는 (이름, 키(cm), 몸무게(kg), 사진) 입력 => 버튼을 누르면
+			=> 유효성 검사 실시 => 유효한 데이터라면...
+			=>	이름, 키, 몸무게, bmi수치, 결과, 사진 을 servlet으로 출력
+			+ html(+CSS) / servlet(CSS X)
+			jsp만들고 난 이후 form action에서 .jsp 추가했음
+	 -->
+	<form action="HomeController_Answer" method="post" enctype="multipart/form-data" 
+	name="bmiForm" onsubmit="return bmiCheck();">
+		<table class="bmiTbl">
+			<tr>
+				<th colspan="2" align="center"><h1>BMI 계산기</h1></th>
+			</tr>
+			
+			<tr>
+				<td align="center" class="td1">이름</td>
+				<td>
+					<input type="text" name="name" class="textType" id="name">
+				</td>
+			</tr>
+
+			<tr>
+				<td align="center" class="td1">키(cm)</td>
+				<td>
+					<input type="text" name="height" class="heightType" id="height">
+				</td>
+			</tr>
+
+			<tr>
+				<td align="center" class="td1">체중(kg)</td>
+				<td>
+					<input type="text" name="weight" class="weightType" id="weight">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center" class="td1">사진</td>
+				<td>
+					<input type="file" name="photo" class="photoType" id="photo">
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<button>변환</button>
+				</td>
+			</tr>
+			
+		</table>
+	</form>
+</body>
+</html>
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="BelloyValidChecker.js"></script>
+<script type="text/javascript" src="M2.js"></script>
+<link rel="stylesheet" href="V3.css">
+</head>
+<body>
+	<!-- 
+		View : HTML / JSP
+		실제 사용자가 보는 페이지 + 입력 + 출력
+		모든 요청은 C쪽으로 !!
+		
+		웹디자이너 A라는 사람이 만들었다고 가정
+	 -->
+	
+	<h1>V1</h1>
+	<form action="C" method="post" name="f" onsubmit="return check();"> <!-- Controller를 하나만 사용하고자 함. GET을 한 번 쓰면 다시 쓸 수가 없어서 비어있는 POST를 활용함 -->
+		x : <input name="x"> <p>
+		y : <input name="y"> <p>
+		<button>계산</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="BelloyValidChecker.js"></script>
+<script type="text/javascript" src="M2.js"></script>
+<link rel="stylesheet" href="V3.css">
+</head>
+<body>
+	<form action="HomeController" method="post" name="form" onsubmit="return check();"
+			enctype="multipart/form-data">
+		<table>
+			<tr>
+				<th colspan="2" align="center"><h1>☆BMI 계산☆</h1></th>
+			</tr>
+			
+			<tr>
+				<td>이름</td>
+				<td><input name="name"></td>	
+			</tr>
+			
+			<tr>
+				<td>키(cm)</td>
+				<td><input name="height"></td>	
+			</tr>
+			
+			<tr>
+				<td>몸무게(kg)</td>
+				<td><input name="weight" ></td>	
+			</tr>
+			
+			<tr>
+				<td>사진</td>
+				<td><input name="photo" type="file"></td>	
+			</tr>
+			
+			<tr>
+				<td>
+				<button>계산</button>
+				</td>
+			</tr>
+					
+		</table>
+	</form>
+</body>
+</html>
