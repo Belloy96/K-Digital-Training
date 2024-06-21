@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "Dongbaek";
+	src: url"aDongbaek.ttf"
+}
+
+body {
+	font-family: "Dongbaek";
+	background-image: url("lostark2.jpg");
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+#hjTbl {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	background-color: #FF999970;
+	width: 700px;
+	height: 700px;
+	border: white solid 7px;
+	border-radius: 10px;
+}
+
+#hjTbl th {
+	font-size: 30pt;
+	color: #ff00ff;
+	text-shadow: white 3px 5px 5px;
+}
+
+#hjTbl td {
+	width: 50%;
+	font-size: 30pt;
+	font-weight: 600;
+	text-align: center;
+	color: #000040;
+	text-shadow: white 3px 5px 5px;
+}
+
+#hjTbl .textType {
+	margin-bottom: auto;
+	outline: none;
+	text-align: center;
+	border: white solid 3px;
+	border-radius: 5px;
+	background-color: transparent;
+	font-size: 25pt;
+	font-family: "Dongbaek";
+}
+
+#hjTbl button {
+	background-color: transparent;
+	border: white;
+	font-size: 30pt;
+	font-weight: 600;
+	font-family: "Dongbaek";
+	color: #ff0080;
+	text-shadow: white 3px 5px 5px;
+	cursor: pointer;
+}
+
+#hjTbl button:hover {
+	text-decoration: underline;
+	font-family: "Dongbaek";
+	font-size: 20pt;
+	color: black;	
+}
+
+
+
+
+
+
+
+
+
+
