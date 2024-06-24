@@ -1,0 +1,49 @@
+@charset "UTF-8";
+@font-face {
+	font-family: "Dongbaek";
+	src: url("aDongbaek.ttf")
+}
+
+body {
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url("lostark1.png");
+	background-repeat:repeat;
+	background-size: 500px;
+}
+
+#siteTbl {
+	font-family: "Dongbaek";
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+}
+
+#siteMenu {
+	font-family: "Dongbaek";
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	border: black solid 2px;
+	border-radius: 5px;
+	font-size: 15pt;
+}
+ 
+#siteTitle {
+	font-family: "Dongbaek";
+	font-size: 30pt;
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
