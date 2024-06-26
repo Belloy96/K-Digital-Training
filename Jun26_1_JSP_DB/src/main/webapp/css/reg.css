@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@font-face {
+	font-family: "Dongbaek";
+	src: url("aDongbaek.ttf");
+}
+
+#regTbl {
+	font-family: "Dongbaek";
+	margin-left: auto;
+	margin-right: auto;
+	background-color: pink;
+	border-radius: 5px;
+}
+
+#regTbl input {
+	font-family: "Dongbaek";
+	width: 100px;
+	text-align: center;
+}
+
+#btnTbl {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#btnTbl button {
+	outline: none;
+	font-family: "Dongbaek"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
