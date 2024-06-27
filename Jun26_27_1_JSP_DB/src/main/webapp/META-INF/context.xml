@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource
+		name="belloyPool"
+		type="javax.sql.DataSource"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+		username="kg"
+		password="8230"
+		url="jdbc:oracle:thin:@localhost:1521:xe"
+		maxTotal="500"
+		maxIdle="100"
+	/>
+</Context>
+
+<!-- 
+	- name : 이름은 임의로 지정할 수 있으며, 이 이름을 통해서 DBCP (DataBase Connection Pool)에 접근, 이용할 수 있음
+	- type : "javax.sql.DataSource" 이걸로 고정되어있음
+	- driverClassName : DB Driver (Oracle을 사용하고 있어서 Oracle 경로)
+	- factory : dbcp를 관리해주는 JNDI (Java Naming Directory Interface) 팩토리
+		서비스에서 제공하는 데이터 및 객체를 발견(discover)하고 참고(lookup)하기 위한
+			자바 API
+		자바 애플리케이션을 외부 서비스에 연결
+	- username : DB 접속 아이디
+	- password : DB 접속 비밀번호
+	- url : DB URL
+	- maxTotal : 동시에 접속할 수 있는 커넥션 객체의 최대 수 (기본 값 8)
+	- maxIdle : 커넥션 풀에 반납할 때 최대로 유지될 수 있는 커넥션 개수 (기본 값 8)
+ -->
+
+
+

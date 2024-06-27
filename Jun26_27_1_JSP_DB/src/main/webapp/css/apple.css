@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "Dongbaek";
+	src: url"aDongbaek.ttf"
+}
+
+body{
+	font-family: "Dongbaek";
+	margin: 0px;
+	padding: 0px;
+}
+
+#contentTbl .dataTr {
+	cursor:pointer;
+}
+
+#contentTbl .dataTr:hover {
+	background-color : #990033;
+}
+
+#contentTbl th{
+	background-color: pink;
+}
+
+
+
+
+
