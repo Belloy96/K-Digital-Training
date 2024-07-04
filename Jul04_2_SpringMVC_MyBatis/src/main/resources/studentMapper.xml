@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.belloy.jul042.student.StudentMapper">
+
+	<insert id="regStudent" parameterType="com.belloy.jul042.student.Student">
+		insert into jul04_student values(
+			jul04_student_seq.nextval, #{s_name}, #{s_nickname})
+	</insert>
+
+	<select id="getAllStudent" resultType="com.belloy.jul042.student.Student">
+		select * from jul04_student order by s_no
+	</select>
+
+
+
+
+</mapper>

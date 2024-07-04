@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.belloy.jul042.test.TestMapper">
+
+	<insert id="regTest" parameterType="com.belloy.jul042.test.Test">
+		insert into jul04_test values(#{t_title}, #{t_when})
+	</insert>
+	
+	<select id="getAllTest" resultType="com.belloy.jul042.test.Test">
+		select * from jul04_test order by t_when
+	</select>
+	
+</mapper>
