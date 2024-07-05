@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		
+		// setInterval : JavaScript의 반복 함수
+		//	일정한 시간 간격으로 코드를 반복해서 실행
+		setInterval(() => {
+			let x = Math.random() * 500;
+			let y = Math.random() * 500;
+			$("img").css("top", y + "px");
+			$("img").css("left", x + "px");
+		}, 1000);	
+		
+		let b = false; // attr()을 사용!!
+		$("button").click(() => {
+			if (!b) {
+				// .attr() : 속성을 가져오거나 추가하는 기능
+				$("img").attr("src", "wine.png");
+			} else {
+				$("img").attr("src", "beer.png");
+			}
+			b = !b; // 껐다 켰다하는 기능
+		});	
+		
+		let tVisible = false;
+		$("#tHandle").click(function(){
+			if (!tVisible) {
+				$("#t").css("top", "5px");
+			} else {
+				$("#t").css("top", "-82px");
+			}
+			tVisible = !tVisible;
+		});
+		
+		// mouseenter() : 그 영역에 마우스 커서 들어갔을 때 이벤트가 발생
+		// mouseleave() : 그 영역에 마우스 커서 나가면 이벤트가 발생
+		$("#t2").mouseenter(function () {
+			$("#t2").css("opacity", 1);
+		});
+		$("#t2").mouseleave(function () {
+			$("#t2").css("opacity", 0);
+		});
+		
+		
+	});
+</script>
+<style type="text/css">
+	img {
+		position: fixed;
+		transition: all 0.5s ease-out;
+	}
+	
+	button {
+		position: fixed;
+		top: 150px;
+	}
+	
+	#t {
+		position: fixed;
+		top: -82px;
+		transition: all 0.5s ease-out;
+	}
+	
+	#t2 {
+		opacity: 0; /* 투명도만 조절 */
+		/* display: none; => 아예 없애기(메뉴도 안눌러짐 + 애니메이션 효과 발동 X) */
+		position: fixed;
+		right: 7px;
+		transition: all 0.5s ease-out;
+	}
+	
+</style>
+</head>
+<body>
+	<img src="beer.png">
+	<button>이미지 바꾸기</button>
+	<table border="1" id="t">
+		<tr>
+			<td><a href="https://www.naver.com">네이버로</a></td>		
+		</tr>
+		
+		<tr>
+			<td><a href="https://www.youtube.com">유튜브로</a></td>		
+		</tr>
+		
+		<tr>
+			<td><a href="https://www.google.com">구글로</a></td>		
+		</tr>
+		
+		<tr>
+			<td id="tHandle">|||||</td>		
+		</tr>
+	</table>
+	
+	<table border="1" id="t2">
+		<tr>
+			<td><a href="https://www.naver.com">네이버로</a></td>		
+		</tr>
+		
+		<tr>
+			<td><a href="https://www.youtube.com">유튜브로</a></td>		
+		</tr>
+		
+		<tr>
+			<td><a href="https://www.google.com">구글로</a></td>		
+		</tr>
+	</table>
+</body>
+</html>
