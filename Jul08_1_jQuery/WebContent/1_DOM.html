@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.t2 {
+		font-size: 30pt;
+	}
+
+	#t {
+		background-color: pink;
+		color: white;
+	}
+	
+	div {
+		border: pink solid 3px;
+		width: 300px;
+		height: 300px;
+	}
+	
+</style>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("#b1").click(function () {
+			// alert('asdf');
+			
+			// a태그로 이루어진 DOM객체 속 text 바꾸기
+			// $("a").text("유튜브로");
+			
+			// text()의 소괄호 안에 값을 넣지 않으면
+			// 기존의 값을 가져오게 됨
+			// let t = $("a").text();
+			// alert(t);
+			
+			// .text()와 비교할 .html()
+			// $("a").html("유튜브로");
+			
+			// .html() 사용하면 새로운 html요소로 변경을 할 수 있음 !
+			// $("a").text("<b>유튜브로</b>"); // <b>태그 안먹힘 -> bold태그를 인식하지 않고 그대로 나옴
+			$("a").html("<b>유튜브로</b>"); 	 // -> bold태그를 인식해서 굵게 나옴
+			
+		});
+		
+		$("#b2").click(function () {
+			// alert("dsa");
+			
+			$("a").attr("href", "https://www.youtube.com");
+			
+			// 이 a태그에 css를 주고 싶은데 부여할게 많다면 id도 부여할 수 있음
+			
+			$("a").attr("id", "t"); // t라는 css는 미리 위에 만들어 놓았음
+			
+			// 속성 지우기
+			$("a").removeAttr("class"); // "class"가 가지고 있는 속성 지우기
+			
+		});
+	
+		let n = 0;
+		$("#b3").click(function () {
+			// alert("zzz");
+			n++;
+			
+			// $("css선택자") or $("DOM객체") : 있는 것을 선택
+			// $("기존에 존재하지 않는 DOM객체") : DOM객체를 생성!
+			// <marquee> 추가하기
+			
+			let m = $("<marquee></marquee>").text("테스트입니다. " + n + "번째");
+			
+			// behavior : 스크롤방식 설정
+			//		scroll : 한쪽 방향으로만 진행(기본값)
+			//		alternate : 왕복
+			m.attr("behavior", "alternate");
+			
+			// direction : 스크롤방향 설정
+			//		left(기본값), right, up, down
+			m.attr("direction", "right");
+			
+			// 요소 추가하기
+			// 기존 요소의 내부에 추가 - append, prepend
+			// $("div").append(m);			// 선택된 요소의 마지막에 내용 추가
+			// $("div").prepend(m);			// 선택된 요소의 첫번째에 내용 추가
+			
+			// 기존 요소의 외부에 추가 - before, after
+			// $("div").before(m);			// 선택된 요소의 바로 앞쪽에 내용 추가
+			$("div").after(m);				// 선택된 요소의 바로 뒤쪽에 내용 추가
+		});
+		
+		$("#b4").click(function () {
+			// alert(123);
+			
+			// remove() : DOM객체 + 그 하위 요소들을 전부 제거함
+			// $("div").remove();
+				
+			// empty() : DOM객체의 하위 요소들을 제거
+			$("div").empty();
+		});
+		
+		
+		$("#regBtn").click(function () {
+			// alert('asdf'); 잘 연결되었나 확인!
+			let m_name = $("#m_name").val();
+			let m_price = $("#m_price").val();
+			// alert(m_name + " : " + m_price); 값이 잘 불러와지는지 확인 !
+			
+			// <tr>
+			// 		<td>라멘</td>
+			// 		<td>10000</td>
+			// </tr>
+			
+			let td1 = $("<td></td>").text(m_name);
+			let td2 = $("<td></td>").text(m_price);
+			let tr = $("<tr></tr>").append(td1, td2);
+			
+			$("table").append(tr);
+			
+			$("#m_name").val("");	// 서비스 차원으로 값 비워주기
+			$("#m_price").val("");
+			
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+	메뉴 : <input id="m_name"> <p>
+	가격 : <input id="m_price"> <p>
+	<button id="regBtn">등록</button>
+	<hr>
+	<table border="1">
+		<tr>
+			<th>메뉴명</th>		
+			<th>가격</th>		
+		</tr>
+	</table>
+	<hr>
+	
+	<a href="http://www.naver.com" class="t2">네이버로</a>
+	<hr>
+	<button id="b1">내용 수정</button> <p>
+	<button id="b2">속성 수정</button> <p>
+	<button id="b3">DOM객체 수정</button> <p>
+	<button id="b4">DOM객체 삭제</button> <p>
+	<div></div>
+</body>
+</html>

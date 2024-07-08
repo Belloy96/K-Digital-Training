@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div {
+		border: pink solid 3px;
+		width: 200px;
+		height: 200px;
+	}
+	
+	img {
+		position: fixed; /* 이미지 파일 만들고 css 수정 */
+	}
+	
+	body {
+		cursor: none;	/* 이미지 파일 만들고 css 수정 */
+	}
+	
+	table {
+		position: fixed;	/* table 만들고 안보이게끔 애니메이션 효과까지 줬음! */
+		opacity: 0;
+		top: -100px;
+		left: -100px;
+		transition: opacity 0.3s ease-in;
+	}
+</style>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		// alert("dd");
+		
+		$("div").mousedown(function () { // 영역을 누름
+			$("h1").text("mousedown");	
+		});
+		
+		$("div").mouseup(function () { // 영역에서 눌렀다가 뗌
+			$("h1").text("mouseup");	
+		});
+		
+		$("div").mouseenter(function () { // 영역에 들어옴
+			$("h1").text("mouseenter");	
+		});
+		
+		$("div").mouseleave(function () { // 영역에서 나감
+			$("h1").text("mouseleave");	
+		});
+		
+		// DOM객체의 정확한 좌표를 알고 싶을 때... (html에 약간의 여백이 존재해서)
+		// .offset() : 특정 좌표로 이동시킴
+		let divX = $("div").offset().left;	// 선택자의 정확한 x좌표
+		let divY = $("div").offset().top;	// 선택자의 정확한 y좌표
+		alert(divX + ", " + divY);
+		
+		$("div").mousemove(function (e) {
+			// 마우스커서의 좌표 표시 (html 기준(시작점이 0, 0으로 나오지 않는 이유))
+			// $("h2").text("mousemove : " + e.pageX + ", " + e.pageY);
+			
+			// div를 기준으로 한 정확한 좌표
+			let x = e.pageX - divX;
+			let y = e.pageY - divY;
+			$("h2").text("정확한 좌표 : " + x + ", " + y);
+		});
+		
+		$("html").mousemove(function (e) {
+			$("img").css("left", (e.pageX + 1) + "px");
+			$("img").css("top", (e.pageY + 1) + "px");
+		})
+		
+		// 마우스 우클릭 했을때 메뉴 안나오게!
+		// document : html을 가리키는 내장 객체
+		$(document).contextmenu(function () { // 우클릭 => 브라우저 메뉴가 나오려는 그 시점!
+			// alert('메뉴다 !');
+			return false;
+		});
+		
+		// 어떤 상황에서든지 mousedown이 발생했을 때
+		//	=> 그 중에서도 마우스 우클릭했다면
+		// 클릭한 위치에 테이블이 나타났다가 3초 뒤에 사라지면서
+		//	=> 0.3초 뒤에 테이블이 원위치로 돌아가게
+		
+		let timeout;
+		$("html").mousedown(function (e) {
+			if (e.button == 2) {
+				$("table").css("opacity", "1");
+				$("table").css("left", e.pageX + "px");
+				$("table").css("top", e.pageY + "px");
+			}
+			
+			clearTimeout(timeout); // 마지막 클릭했을 때 3초 후에 사라지게 만드는..
+			
+			timeout = setTimeout(() => {
+				$("table").css("opacity", "0");
+				setTimeout(() => {
+					$("table").css("left", "-100px");
+					$("table").css("top", "-100px");
+				}, 300);
+			}, 3000);
+		});
+		
+		$("select").change(function () { // select 값을 바꾸면
+			let t = $(this).val();
+			// alert(t);
+			
+			if (t === "직접입력") {
+				$(this).removeAttr("name");
+				let eAddr = $("<input>").attr("name", "eAddr");
+				$("#address").append(eAddr); // 여기까지만 있으면 input값이 계속 나옴!!
+			} else {
+				$("#address").empty();
+				$(this).attr("name", "eAddr"); 	// 직접입력이 없으면 select에서 고른 옵션이 파라미터 값으로 
+												// 아니면 입력한 값이 파라미터
+			}
+			
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+	<div></div>
+	<h1></h1>
+	<h2></h2>
+	<img src="beer.png">
+	<table border="1">
+		<tr>
+			<td><a href="https://www.naver.com">네이버로</a></td>
+		</tr>
+			
+		<tr>
+			<td><a href="https://www.youtube.com">유튜브로</a></td>
+		</tr>
+		
+		<tr>
+			<td><a href="https://www.google.com">구글로</a></td>
+		</tr>
+	</table>
+	<hr>
+	<select name="eAddr">
+		<option value="naver.com">naver.com</option>
+		<option value="gmail.com">gmail.com</option>
+		<option value="daum.net">daum.net</option>
+		<option>직접입력</option>
+	</select>
+	<span id="address"></span>
+</body>
+</html>
