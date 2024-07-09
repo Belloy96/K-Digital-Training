@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.belloy.jul092.error.ErrorMapper">
+
+	<select id="getAllError" resultType="com.belloy.jul092.error.Error">
+		select * from jul09_error order by e_where
+	</select>
+	
+	<!-- 
+		문자열 포함 검색 : 
+			oracle : %문자열%
+			myBatis : '%'||문자열||'%'
+	 -->
+	
+	<select id="searchError" resultType="com.belloy.jul092.error.Error"
+		parameterType="com.belloy.jul092.error.Error">
+		select * from jul09_error where e_what like '%'||#{e_what }||'%'
+	</select>
+	
+	
+</mapper>
