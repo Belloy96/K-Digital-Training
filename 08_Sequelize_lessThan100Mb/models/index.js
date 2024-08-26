@@ -1,0 +1,53 @@
+// 시퀄라이즈 (Sequelize)
+//  ORM(Object Relational Mapping)
+//  JS 객체와 DB의 테이블을 매핑해주는 도구
+// npm install express morgan nunjucks chokidar sequelize sequelize-cli mysql2
+//  sequelize-cli : 시퀄라이즈 명령어를 실행하기 위한 패키지
+// npx sequelize init 명령어 실행 => 여러 폴더가 생성될 것!
+//  npx : node의 모듈/패키지를 실행시키는 하나의 도구
+
+// DB연동을 위한 Sequelize 불러오기
+const Sequelize = require('sequelize');
+
+const User = require('./user');
+const Comment = require('./comment');
+
+const env = process.env.NODE_ENV || 'development';
+
+const config = require(__dirname + '/../config/config.json')[env];
+const db = {};
+
+const sequelize = new Sequelize(config.database,
+    config.username, config.password, config);
+db.sequelize = sequelize;
+
+db.User = User;
+db.Comment = Comment;
+
+User.initiate(sequelize);
+Comment.initiate(sequelize);
+
+User.associate(db);
+Comment.associate(db);
+
+module.exports = db;
+
+// db 객체에 User와 Comment 모델을 담아 두었음
+// 앞으로 db 객체를 require해서 User와 Comment 모델에 접근 할 수 있음
+// 각 모델의 initiate 메소드는 static initiate 메소드를 호출 한 것 !
+// 모델.init이 실행되어야 테이블이 모델로 연결이 된다
+// 다른 테이블과 관계를 연결하는 static associate 메소드도 미리 실행했음 !
+
+// user테이블과 comments 테이블의 관계에 대해서 설정해보자!
+// 사용자(작성자) 한 명은 댓글을 여러개 작성할 수 있음
+// 하지만 댓글 하나에 사용자(작성자)가 여러 명일 수는 없음
+// 이러한 관계를 일대다(1:N)관계라고 함
+
+// 다른 관계로 일대일, 다대다 관계가 있는데
+// 사용자와 사용자에 대한 정보테이블을 일대일(1:1) 관계의 예로 들 수 있겠고
+// 게시글 테이블과 해시태그(#XXX) 테이블을 다대다(N:M) 관계의 예가 될 수 있겠다 !
+
+
+
+
+
